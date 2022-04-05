@@ -8,7 +8,7 @@ class FloatingBottomNav extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
           color: Colors.black, borderRadius: BorderRadius.circular(12)),
-      height: 60,
+      height: 70,
       margin: const EdgeInsets.symmetric(horizontal: 35),
       width: MediaQuery.of(context).size.width,
       child: Row(
