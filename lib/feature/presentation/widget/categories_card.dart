@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 class CategoriesCard extends StatelessWidget {
   final String text;
   final Color? color;
-  const CategoriesCard({Key? key, required this.text, this.color})
+  final double? width;
+  final double? height;
+  const CategoriesCard({Key? key, required this.text, this.color, this.width, this.height})
       : super(key: key);
 
   @override
@@ -11,11 +13,11 @@ class CategoriesCard extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.only(right: 10),
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(8),
+        borderRadius: BorderRadius.circular(12),
         child: Container(
           color: color ?? Colors.blueGrey[800],
-          height: 25,
-          width: 90,
+          height: height ?? 25,
+          width: width ?? 90,
           child: Center(
             child: Text(
               text,
