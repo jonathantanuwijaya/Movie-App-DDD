@@ -26,11 +26,15 @@ class HomeHeader extends StatelessWidget {
           ],
         ),
         Expanded(
-          child: SizedBox(
-            height: 28,
-            width: 28,
-            child: Image.asset(
-              'assets/user.png',
+          flex: 1,
+          child: Align(
+            alignment: Alignment.centerRight,
+            child: SizedBox(
+              height: 28,
+              width: 28,
+              child: Image.asset(
+                'assets/user.png',
+              ),
             ),
           ),
         )

@@ -5,17 +5,26 @@ class SearchBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: BorderRadius.circular(8),
+      borderRadius: BorderRadius.circular(10),
       child: Container(
+        padding: const EdgeInsets.all(1),
         height: 50,
-        width: double.infinity,
+        width: MediaQuery.of(context).size.width,
         color: Colors.blueGrey[800],
-        child: TextFormField(
-          decoration: const InputDecoration(
-              contentPadding: EdgeInsets.all(4),
-              fillColor: Colors.white,
-              hintText: 'search movie',
-              border: InputBorder.none),
+        child: Row(
+          children: [
+            const Icon(Icons.search_outlined,color: Colors.white, size: 30,),
+            Expanded(
+              child: TextFormField(
+                decoration: const InputDecoration(
+                    contentPadding: EdgeInsets.all(4),
+                    fillColor: Colors.white,
+                    hintText: 'search movie',
+                    border: InputBorder.none),
+              ),
+            ),
+            const Icon(Icons.mic,color: Colors.white, size: 25,),
+          ],
         ),
       ),
     );

@@ -20,10 +20,7 @@ class CategoriesCard extends StatelessWidget {
             child: Text(
               text,
               textAlign: TextAlign.center,
-              style: const TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 15),
+              style: const TextStyle(color: Colors.white, fontSize: 15),
             ),
           ),
         ),
