@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movieapp/feature/domain/movie/movies.dart';
 import 'package:movieapp/feature/presentation/detail/detail_page.dart';
+import 'package:movieapp/feature/presentation/sign_in_page/sign_in_page.dart';
 import 'package:movieapp/feature/presentation/widget/categories_card.dart';
 import 'package:movieapp/feature/presentation/widget/detail_page_header.dart';
 import 'package:movieapp/feature/presentation/widget/floating_bottom_nav.dart';
@@ -22,7 +23,14 @@ class _HomePageState extends State<HomePage> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          HomeHeader(),
+          GestureDetector(
+              onTap: () {
+                Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                        builder: (BuildContext context) => SignInPage()));
+              },
+              child: HomeHeader()),
           SearchBar(),
           const SizedBox(height: 15),
           const Text(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movieapp/feature/presentation/app.widget.dart';
 import 'package:movieapp/feature/presentation/home/home_page.dart';
 
 class DetailPageHeader extends StatelessWidget {
@@ -14,7 +15,7 @@ class DetailPageHeader extends StatelessWidget {
             Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
-                    builder: (BuildContext context) => const HomePage()));
+                    builder: (BuildContext context) => const AppWidget()));
           },
           child: ClipRRect(
             borderRadius: BorderRadius.circular(6),
