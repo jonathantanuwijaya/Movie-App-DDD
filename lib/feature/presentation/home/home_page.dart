@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movieapp/feature/application/movie/movie_bloc.dart';
@@ -23,7 +24,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return BlocBuilder<MovieBloc, MovieState>(
         builder: (context, state) => state.map(
-            initial: (_) => CircularProgressIndicator(),
+            initial: (_) => const Center(child: CircularProgressIndicator()),
             failed: (_) {
               return const Center(
                 child: Text('Terjadi Kesalahan'),
@@ -118,18 +119,18 @@ class _HomePageState extends State<HomePage> {
                               //         "After surviving an unexpected attack in enemy territory, jet-setting industrialist Tony Stark builds",
                               //     longDescription:
                               //         "After surviving an unexpected attack in enemy territory, jet-setting industrialist Tony Stark builds a high-tech suit of armor and vows to protect the world as Iron Man. Straight from the pages of the legendary comic book, Iron Man is a hero who is built - not born - to be unlike any other.");
-                              Navigator.pushReplacement(
+                              Navigator.push(
                                   context,
                                   MaterialPageRoute(
                                       builder: (BuildContext context) =>
-                                          MovieDetailPage(movie: state.movies[index])));
+                                          MovieDetailPage(
+                                              movie: state.movies[index])));
                             },
                             child: Container(
                               margin:
                                   const EdgeInsets.symmetric(horizontal: 10),
-                              child:  MoviePoster(
-                        
-                                url:state.movies[index].artworkUrl100,
+                              child: MoviePoster(
+                                url: state.movies[index].artworkUrl100,
                               ),
                             ),
                           );
