@@ -20,7 +20,7 @@ class ApiHelper {
       String urlPath = path + '?term=$formattedQuery&entity=movie';
       debugPrint(urlPath);
       final Response response = await _dio.get(urlPath);
-      debugPrint('RESPONSE == ${response.data}');
+      // debugPrint('RESPONSE == ${response.data}');
       // debugPrint('RESPONSE STCODE == ${response.statusCode}');
       return _handleApiResponse(response);
     } on AppException catch(e){

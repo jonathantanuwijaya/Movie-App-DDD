@@ -20,6 +20,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final searchMovie = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<MovieBloc, MovieState>(
@@ -44,7 +46,19 @@ class _HomePageState extends State<HomePage> {
                                       SignInPage()));
                         },
                         child: HomeHeader()),
-                    SearchBar(),
+                    SearchBar(
+                      controller: searchMovie,
+                      // validator: (value) {
+                      //     value!.isNotEmpty ? null : 'Tidak boleh kosong';},
+                      submitting: () {
+                        debugPrint('Search Movie == ${searchMovie.text}');
+                        // Navigator.pushReplacement(
+                        //     context,
+                        //     MaterialPageRoute(
+                        //         builder: (BuildContext context) =>
+                        //             SignInPage()));
+                      },
+                    ),
                     const SizedBox(height: 15),
                     const Text(
                       'Categories',

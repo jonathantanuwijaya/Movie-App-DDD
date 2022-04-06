@@ -6,11 +6,9 @@ part 'movie_dto.g.dart';
 
 @freezed
 class MovieDto with _$MovieDto {
-  
   const MovieDto._();
   const factory MovieDto(
-      {
-        @Default(0) int collectionId,
+      {@Default(0) int collectionId,
       required String artistName,
       required String trackName,
       required String artworkUrl100,
