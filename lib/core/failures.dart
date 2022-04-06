@@ -14,3 +14,9 @@ abstract class ValueFailure<T> with _$ValueFailure<T> {
    }) = ShortPassword<T>;
   
 }
+
+@freezed
+abstract class MovieFailure with _$MovieFailure {
+  const factory MovieFailure.unexpected() = _Unexpected;
+
+}

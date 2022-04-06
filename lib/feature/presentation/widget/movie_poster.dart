@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 class MoviePoster extends StatelessWidget {
   final double? height;
   final double? width;
-  final int id;
+
   final String url;
-  const MoviePoster({Key? key, required this.id, required this.url, this.height, this.width})
+  const MoviePoster({Key? key, required this.url, this.height, this.width})
       : super(key: key);
 
   @override
