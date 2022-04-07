@@ -18,8 +18,20 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$AuthEventTearOff {
   const _$AuthEventTearOff();
 
-  _Started started() {
-    return const _Started();
+  EmailChanged emailChanged(String emailStr) {
+    return EmailChanged(
+      emailStr,
+    );
+  }
+
+  PasswordChanged passwordChanged(String passwordStr) {
+    return PasswordChanged(
+      passwordStr,
+    );
+  }
+
+  SignIn signIn() {
+    return const SignIn();
   }
 }
 
@@ -30,33 +42,45 @@ const $AuthEvent = _$AuthEventTearOff();
 mixin _$AuthEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
+    required TResult Function(String emailStr) emailChanged,
+    required TResult Function(String passwordStr) passwordChanged,
+    required TResult Function() signIn,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function(String emailStr)? emailChanged,
+    TResult Function(String passwordStr)? passwordChanged,
+    TResult Function()? signIn,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function(String emailStr)? emailChanged,
+    TResult Function(String passwordStr)? passwordChanged,
+    TResult Function()? signIn,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
+    required TResult Function(EmailChanged value) emailChanged,
+    required TResult Function(PasswordChanged value) passwordChanged,
+    required TResult Function(SignIn value) signIn,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(EmailChanged value)? emailChanged,
+    TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(SignIn value)? signIn,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(EmailChanged value)? emailChanged,
+    TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(SignIn value)? signIn,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -78,35 +102,314 @@ class _$AuthEventCopyWithImpl<$Res> implements $AuthEventCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$StartedCopyWith<$Res> {
-  factory _$StartedCopyWith(_Started value, $Res Function(_Started) then) =
-      __$StartedCopyWithImpl<$Res>;
+abstract class $EmailChangedCopyWith<$Res> {
+  factory $EmailChangedCopyWith(
+          EmailChanged value, $Res Function(EmailChanged) then) =
+      _$EmailChangedCopyWithImpl<$Res>;
+  $Res call({String emailStr});
 }
 
 /// @nodoc
-class __$StartedCopyWithImpl<$Res> extends _$AuthEventCopyWithImpl<$Res>
-    implements _$StartedCopyWith<$Res> {
-  __$StartedCopyWithImpl(_Started _value, $Res Function(_Started) _then)
-      : super(_value, (v) => _then(v as _Started));
+class _$EmailChangedCopyWithImpl<$Res> extends _$AuthEventCopyWithImpl<$Res>
+    implements $EmailChangedCopyWith<$Res> {
+  _$EmailChangedCopyWithImpl(
+      EmailChanged _value, $Res Function(EmailChanged) _then)
+      : super(_value, (v) => _then(v as EmailChanged));
 
   @override
-  _Started get _value => super._value as _Started;
+  EmailChanged get _value => super._value as EmailChanged;
+
+  @override
+  $Res call({
+    Object? emailStr = freezed,
+  }) {
+    return _then(EmailChanged(
+      emailStr == freezed
+          ? _value.emailStr
+          : emailStr // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$_Started implements _Started {
-  const _$_Started();
+class _$EmailChanged implements EmailChanged {
+  const _$EmailChanged(this.emailStr);
+
+  @override
+  final String emailStr;
 
   @override
   String toString() {
-    return 'AuthEvent.started()';
+    return 'AuthEvent.emailChanged(emailStr: $emailStr)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _Started);
+        (other.runtimeType == runtimeType &&
+            other is EmailChanged &&
+            const DeepCollectionEquality().equals(other.emailStr, emailStr));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(emailStr));
+
+  @JsonKey(ignore: true)
+  @override
+  $EmailChangedCopyWith<EmailChanged> get copyWith =>
+      _$EmailChangedCopyWithImpl<EmailChanged>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String emailStr) emailChanged,
+    required TResult Function(String passwordStr) passwordChanged,
+    required TResult Function() signIn,
+  }) {
+    return emailChanged(emailStr);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String emailStr)? emailChanged,
+    TResult Function(String passwordStr)? passwordChanged,
+    TResult Function()? signIn,
+  }) {
+    return emailChanged?.call(emailStr);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String emailStr)? emailChanged,
+    TResult Function(String passwordStr)? passwordChanged,
+    TResult Function()? signIn,
+    required TResult orElse(),
+  }) {
+    if (emailChanged != null) {
+      return emailChanged(emailStr);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(EmailChanged value) emailChanged,
+    required TResult Function(PasswordChanged value) passwordChanged,
+    required TResult Function(SignIn value) signIn,
+  }) {
+    return emailChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(EmailChanged value)? emailChanged,
+    TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(SignIn value)? signIn,
+  }) {
+    return emailChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(EmailChanged value)? emailChanged,
+    TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(SignIn value)? signIn,
+    required TResult orElse(),
+  }) {
+    if (emailChanged != null) {
+      return emailChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class EmailChanged implements AuthEvent {
+  const factory EmailChanged(String emailStr) = _$EmailChanged;
+
+  String get emailStr;
+  @JsonKey(ignore: true)
+  $EmailChangedCopyWith<EmailChanged> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $PasswordChangedCopyWith<$Res> {
+  factory $PasswordChangedCopyWith(
+          PasswordChanged value, $Res Function(PasswordChanged) then) =
+      _$PasswordChangedCopyWithImpl<$Res>;
+  $Res call({String passwordStr});
+}
+
+/// @nodoc
+class _$PasswordChangedCopyWithImpl<$Res> extends _$AuthEventCopyWithImpl<$Res>
+    implements $PasswordChangedCopyWith<$Res> {
+  _$PasswordChangedCopyWithImpl(
+      PasswordChanged _value, $Res Function(PasswordChanged) _then)
+      : super(_value, (v) => _then(v as PasswordChanged));
+
+  @override
+  PasswordChanged get _value => super._value as PasswordChanged;
+
+  @override
+  $Res call({
+    Object? passwordStr = freezed,
+  }) {
+    return _then(PasswordChanged(
+      passwordStr == freezed
+          ? _value.passwordStr
+          : passwordStr // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$PasswordChanged implements PasswordChanged {
+  const _$PasswordChanged(this.passwordStr);
+
+  @override
+  final String passwordStr;
+
+  @override
+  String toString() {
+    return 'AuthEvent.passwordChanged(passwordStr: $passwordStr)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is PasswordChanged &&
+            const DeepCollectionEquality()
+                .equals(other.passwordStr, passwordStr));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(passwordStr));
+
+  @JsonKey(ignore: true)
+  @override
+  $PasswordChangedCopyWith<PasswordChanged> get copyWith =>
+      _$PasswordChangedCopyWithImpl<PasswordChanged>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String emailStr) emailChanged,
+    required TResult Function(String passwordStr) passwordChanged,
+    required TResult Function() signIn,
+  }) {
+    return passwordChanged(passwordStr);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String emailStr)? emailChanged,
+    TResult Function(String passwordStr)? passwordChanged,
+    TResult Function()? signIn,
+  }) {
+    return passwordChanged?.call(passwordStr);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String emailStr)? emailChanged,
+    TResult Function(String passwordStr)? passwordChanged,
+    TResult Function()? signIn,
+    required TResult orElse(),
+  }) {
+    if (passwordChanged != null) {
+      return passwordChanged(passwordStr);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(EmailChanged value) emailChanged,
+    required TResult Function(PasswordChanged value) passwordChanged,
+    required TResult Function(SignIn value) signIn,
+  }) {
+    return passwordChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(EmailChanged value)? emailChanged,
+    TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(SignIn value)? signIn,
+  }) {
+    return passwordChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(EmailChanged value)? emailChanged,
+    TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(SignIn value)? signIn,
+    required TResult orElse(),
+  }) {
+    if (passwordChanged != null) {
+      return passwordChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class PasswordChanged implements AuthEvent {
+  const factory PasswordChanged(String passwordStr) = _$PasswordChanged;
+
+  String get passwordStr;
+  @JsonKey(ignore: true)
+  $PasswordChangedCopyWith<PasswordChanged> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $SignInCopyWith<$Res> {
+  factory $SignInCopyWith(SignIn value, $Res Function(SignIn) then) =
+      _$SignInCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$SignInCopyWithImpl<$Res> extends _$AuthEventCopyWithImpl<$Res>
+    implements $SignInCopyWith<$Res> {
+  _$SignInCopyWithImpl(SignIn _value, $Res Function(SignIn) _then)
+      : super(_value, (v) => _then(v as SignIn));
+
+  @override
+  SignIn get _value => super._value as SignIn;
+}
+
+/// @nodoc
+
+class _$SignIn implements SignIn {
+  const _$SignIn();
+
+  @override
+  String toString() {
+    return 'AuthEvent.signIn()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is SignIn);
   }
 
   @override
@@ -115,27 +418,33 @@ class _$_Started implements _Started {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
+    required TResult Function(String emailStr) emailChanged,
+    required TResult Function(String passwordStr) passwordChanged,
+    required TResult Function() signIn,
   }) {
-    return started();
+    return signIn();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function(String emailStr)? emailChanged,
+    TResult Function(String passwordStr)? passwordChanged,
+    TResult Function()? signIn,
   }) {
-    return started?.call();
+    return signIn?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function(String emailStr)? emailChanged,
+    TResult Function(String passwordStr)? passwordChanged,
+    TResult Function()? signIn,
     required TResult orElse(),
   }) {
-    if (started != null) {
-      return started();
+    if (signIn != null) {
+      return signIn();
     }
     return orElse();
   }
@@ -143,42 +452,57 @@ class _$_Started implements _Started {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
+    required TResult Function(EmailChanged value) emailChanged,
+    required TResult Function(PasswordChanged value) passwordChanged,
+    required TResult Function(SignIn value) signIn,
   }) {
-    return started(this);
+    return signIn(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(EmailChanged value)? emailChanged,
+    TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(SignIn value)? signIn,
   }) {
-    return started?.call(this);
+    return signIn?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(EmailChanged value)? emailChanged,
+    TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(SignIn value)? signIn,
     required TResult orElse(),
   }) {
-    if (started != null) {
-      return started(this);
+    if (signIn != null) {
+      return signIn(this);
     }
     return orElse();
   }
 }
 
-abstract class _Started implements AuthEvent {
-  const factory _Started() = _$_Started;
+abstract class SignIn implements AuthEvent {
+  const factory SignIn() = _$SignIn;
 }
 
 /// @nodoc
 class _$AuthStateTearOff {
   const _$AuthStateTearOff();
 
-  _Initial initial() {
-    return const _Initial();
+  _AuthState call(
+      {required EmailAddress emailAddress,
+      required Password password,
+      required bool isSubmitting,
+      required Option<Either<AuthFailure, Unit>> authFailureOrSucessOption}) {
+    return _AuthState(
+      emailAddress: emailAddress,
+      password: password,
+      isSubmitting: isSubmitting,
+      authFailureOrSucessOption: authFailureOrSucessOption,
+    );
   }
 }
 
@@ -187,37 +511,14 @@ const $AuthState = _$AuthStateTearOff();
 
 /// @nodoc
 mixin _$AuthState {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-  }) =>
+  EmailAddress get emailAddress => throw _privateConstructorUsedError;
+  Password get password => throw _privateConstructorUsedError;
+  bool get isSubmitting => throw _privateConstructorUsedError;
+  Option<Either<AuthFailure, Unit>> get authFailureOrSucessOption =>
       throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    required TResult orElse(),
-  }) =>
+
+  @JsonKey(ignore: true)
+  $AuthStateCopyWith<AuthState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -225,6 +526,11 @@ mixin _$AuthState {
 abstract class $AuthStateCopyWith<$Res> {
   factory $AuthStateCopyWith(AuthState value, $Res Function(AuthState) then) =
       _$AuthStateCopyWithImpl<$Res>;
+  $Res call(
+      {EmailAddress emailAddress,
+      Password password,
+      bool isSubmitting,
+      Option<Either<AuthFailure, Unit>> authFailureOrSucessOption});
 }
 
 /// @nodoc
@@ -234,100 +540,154 @@ class _$AuthStateCopyWithImpl<$Res> implements $AuthStateCopyWith<$Res> {
   final AuthState _value;
   // ignore: unused_field
   final $Res Function(AuthState) _then;
-}
-
-/// @nodoc
-abstract class _$InitialCopyWith<$Res> {
-  factory _$InitialCopyWith(_Initial value, $Res Function(_Initial) then) =
-      __$InitialCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$InitialCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
-    implements _$InitialCopyWith<$Res> {
-  __$InitialCopyWithImpl(_Initial _value, $Res Function(_Initial) _then)
-      : super(_value, (v) => _then(v as _Initial));
 
   @override
-  _Initial get _value => super._value as _Initial;
+  $Res call({
+    Object? emailAddress = freezed,
+    Object? password = freezed,
+    Object? isSubmitting = freezed,
+    Object? authFailureOrSucessOption = freezed,
+  }) {
+    return _then(_value.copyWith(
+      emailAddress: emailAddress == freezed
+          ? _value.emailAddress
+          : emailAddress // ignore: cast_nullable_to_non_nullable
+              as EmailAddress,
+      password: password == freezed
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as Password,
+      isSubmitting: isSubmitting == freezed
+          ? _value.isSubmitting
+          : isSubmitting // ignore: cast_nullable_to_non_nullable
+              as bool,
+      authFailureOrSucessOption: authFailureOrSucessOption == freezed
+          ? _value.authFailureOrSucessOption
+          : authFailureOrSucessOption // ignore: cast_nullable_to_non_nullable
+              as Option<Either<AuthFailure, Unit>>,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$AuthStateCopyWith<$Res> implements $AuthStateCopyWith<$Res> {
+  factory _$AuthStateCopyWith(
+          _AuthState value, $Res Function(_AuthState) then) =
+      __$AuthStateCopyWithImpl<$Res>;
+  @override
+  $Res call(
+      {EmailAddress emailAddress,
+      Password password,
+      bool isSubmitting,
+      Option<Either<AuthFailure, Unit>> authFailureOrSucessOption});
+}
+
+/// @nodoc
+class __$AuthStateCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
+    implements _$AuthStateCopyWith<$Res> {
+  __$AuthStateCopyWithImpl(_AuthState _value, $Res Function(_AuthState) _then)
+      : super(_value, (v) => _then(v as _AuthState));
+
+  @override
+  _AuthState get _value => super._value as _AuthState;
+
+  @override
+  $Res call({
+    Object? emailAddress = freezed,
+    Object? password = freezed,
+    Object? isSubmitting = freezed,
+    Object? authFailureOrSucessOption = freezed,
+  }) {
+    return _then(_AuthState(
+      emailAddress: emailAddress == freezed
+          ? _value.emailAddress
+          : emailAddress // ignore: cast_nullable_to_non_nullable
+              as EmailAddress,
+      password: password == freezed
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as Password,
+      isSubmitting: isSubmitting == freezed
+          ? _value.isSubmitting
+          : isSubmitting // ignore: cast_nullable_to_non_nullable
+              as bool,
+      authFailureOrSucessOption: authFailureOrSucessOption == freezed
+          ? _value.authFailureOrSucessOption
+          : authFailureOrSucessOption // ignore: cast_nullable_to_non_nullable
+              as Option<Either<AuthFailure, Unit>>,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$_Initial implements _Initial {
-  const _$_Initial();
+class _$_AuthState implements _AuthState {
+  const _$_AuthState(
+      {required this.emailAddress,
+      required this.password,
+      required this.isSubmitting,
+      required this.authFailureOrSucessOption});
+
+  @override
+  final EmailAddress emailAddress;
+  @override
+  final Password password;
+  @override
+  final bool isSubmitting;
+  @override
+  final Option<Either<AuthFailure, Unit>> authFailureOrSucessOption;
 
   @override
   String toString() {
-    return 'AuthState.initial()';
+    return 'AuthState(emailAddress: $emailAddress, password: $password, isSubmitting: $isSubmitting, authFailureOrSucessOption: $authFailureOrSucessOption)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _Initial);
+        (other.runtimeType == runtimeType &&
+            other is _AuthState &&
+            const DeepCollectionEquality()
+                .equals(other.emailAddress, emailAddress) &&
+            const DeepCollectionEquality().equals(other.password, password) &&
+            const DeepCollectionEquality()
+                .equals(other.isSubmitting, isSubmitting) &&
+            const DeepCollectionEquality().equals(
+                other.authFailureOrSucessOption, authFailureOrSucessOption));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(emailAddress),
+      const DeepCollectionEquality().hash(password),
+      const DeepCollectionEquality().hash(isSubmitting),
+      const DeepCollectionEquality().hash(authFailureOrSucessOption));
 
+  @JsonKey(ignore: true)
   @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-  }) {
-    return initial();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-  }) {
-    return initial?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-  }) {
-    return initial(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-  }) {
-    return initial?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial(this);
-    }
-    return orElse();
-  }
+  _$AuthStateCopyWith<_AuthState> get copyWith =>
+      __$AuthStateCopyWithImpl<_AuthState>(this, _$identity);
 }
 
-abstract class _Initial implements AuthState {
-  const factory _Initial() = _$_Initial;
+abstract class _AuthState implements AuthState {
+  const factory _AuthState(
+      {required EmailAddress emailAddress,
+      required Password password,
+      required bool isSubmitting,
+      required Option<Either<AuthFailure, Unit>>
+          authFailureOrSucessOption}) = _$_AuthState;
+
+  @override
+  EmailAddress get emailAddress;
+  @override
+  Password get password;
+  @override
+  bool get isSubmitting;
+  @override
+  Option<Either<AuthFailure, Unit>> get authFailureOrSucessOption;
+  @override
+  @JsonKey(ignore: true)
+  _$AuthStateCopyWith<_AuthState> get copyWith =>
+      throw _privateConstructorUsedError;
 }
