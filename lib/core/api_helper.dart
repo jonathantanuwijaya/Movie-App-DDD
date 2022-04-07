@@ -15,7 +15,7 @@ class ApiHelper {
 
   Future<BaseEntity> get({required String path, String? queryParams}) async {
     try {
-      String queries = 'iron man';
+      String queries = queryParams ?? 'iron man';
       String formattedQuery = queries.replaceAll(' ', '+');
       String urlPath = path + '?term=$formattedQuery&entity=movie';
       debugPrint(urlPath);

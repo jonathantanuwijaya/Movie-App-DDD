@@ -42,7 +42,10 @@ class SearchBar extends StatelessWidget {
                     onFieldSubmitted: (value){
                       submitting();
                     },
-                    // validator: validator()
+                    // validator: (value){
+                    //   value!.isEmpty ? 'Tidak Boleh Kosong' : null;
+                    //   validator();
+                    // }
                     ),
               ),
             ),

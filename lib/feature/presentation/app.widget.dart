@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movieapp/feature/application/movie/movie_bloc.dart';
+import 'package:movieapp/feature/application/search/search_bloc.dart';
 import 'package:movieapp/feature/presentation/home/home_page.dart';
 import 'package:movieapp/injection.dart';
 
@@ -13,7 +14,8 @@ class AppWidget extends StatelessWidget {
       providers: [
         BlocProvider(
             create: (_) =>
-                getIt<MovieBloc>()..add(const MovieEvent.gettingAll()))
+                getIt<MovieBloc>()..add(const MovieEvent.gettingAll())),
+        BlocProvider(create: (_) => getIt<SearchBloc>())
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

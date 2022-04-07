@@ -2,8 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movieapp/feature/application/movie/movie_bloc.dart';
+import 'package:movieapp/feature/application/search/search_bloc.dart';
 import 'package:movieapp/feature/domain/movie/movies.dart';
 import 'package:movieapp/feature/presentation/detail/detail_page.dart';
+import 'package:movieapp/feature/presentation/search/search_page.dart';
 import 'package:movieapp/feature/presentation/sign_in_page/sign_in_page.dart';
 import 'package:movieapp/feature/presentation/widget/categories_card.dart';
 import 'package:movieapp/feature/presentation/widget/detail_page_header.dart';
@@ -48,15 +50,21 @@ class _HomePageState extends State<HomePage> {
                         child: HomeHeader()),
                     SearchBar(
                       controller: searchMovie,
-                      // validator: (value) {
-                      //     value!.isNotEmpty ? null : 'Tidak boleh kosong';},
-                      submitting: () {
+                    
+                      submitting: () async {
                         debugPrint('Search Movie == ${searchMovie.text}');
-                        // Navigator.pushReplacement(
-                        //     context,
-                        //     MaterialPageRoute(
-                        //         builder: (BuildContext context) =>
-                        //             SignInPage()));
+                        if (searchMovie.text.isNotEmpty) {
+                          context
+                              .read<SearchBloc>()
+                              .add(SearchEvent.searchMovie(searchMovie.text));
+                          // Future.delayed(const Duration(milliseconds: 1000));
+
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (BuildContext context) =>
+                                      SearchPage()));
+                        }
                       },
                     ),
                     const SizedBox(height: 15),
@@ -122,17 +130,6 @@ class _HomePageState extends State<HomePage> {
                         itemBuilder: (BuildContext context, int index) {
                           return GestureDetector(
                             onTap: () {
-                              // var mv = const Movie(
-                              //     collectionId: 1600477838,
-                              //     // collectionId: state.movies,
-                              //     artistName: 'Jon Favreau',
-                              //     trackName: 'Iron Man',
-                              //     artworkUrl100:
-                              //         "https://is5-ssl.mzstatic.com/image/thumb/Video118/v4/02/0e/c9/020ec98b-f4b3-05e9-2de3-5e7d0363b298/source/100x100bb.jpg",
-                              //     shortDescription:
-                              //         "After surviving an unexpected attack in enemy territory, jet-setting industrialist Tony Stark builds",
-                              //     longDescription:
-                              //         "After surviving an unexpected attack in enemy territory, jet-setting industrialist Tony Stark builds a high-tech suit of armor and vows to protect the world as Iron Man. Straight from the pages of the legendary comic book, Iron Man is a hero who is built - not born - to be unlike any other.");
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(

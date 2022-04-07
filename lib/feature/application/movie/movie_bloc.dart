@@ -16,12 +16,9 @@ class MovieBloc extends Bloc<MovieEvent, MovieState> {
     on<MovieEvent>((event, emit) async {
       await event.map(gettingAll: (e) async {
         final movieList = await _movieRepository.getAllMovies();
-        // if (movieList != null) {
-          emit(movieList.fold(
-              (l) => MovieState.failed(), (r) => MovieState.success(r)));
-        // } else {
-        //   emit(const MovieState.failed());
-        // }
+        emit(movieList.fold(
+            (l) => MovieState.failed(), (r) => MovieState.success(r)));
+
       });
     });
   }

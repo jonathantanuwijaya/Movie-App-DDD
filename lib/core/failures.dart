@@ -12,11 +12,11 @@ abstract class ValueFailure<T> with _$ValueFailure<T> {
   const factory ValueFailure.shortPassword({
     required String password
    }) = ShortPassword<T>;
-  
+  // const factory ValueFailure.unexpected() = _Unexpected;
 }
 
-@freezed
-abstract class MovieFailure with _$MovieFailure {
-  const factory MovieFailure.unexpected() = _Unexpected;
+// @freezed
+// abstract class MovieFailure with _$MovieFailure {
+//   const factory MovieFailure.unexpected() = _Unexpected;
 
-}
+// }

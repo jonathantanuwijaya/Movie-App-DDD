@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:movieapp/feature/presentation/app.widget.dart';
-import 'package:movieapp/feature/presentation/home/home_page.dart';
 
 class DetailPageHeader extends StatelessWidget {
-  const DetailPageHeader({Key? key}) : super(key: key);
+  final String? pageTitle;
+  const DetailPageHeader({Key? key, this.pageTitle}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -12,6 +12,7 @@ class DetailPageHeader extends StatelessWidget {
       children: [
         GestureDetector(
           onTap: () {
+            Navigator.pop(context);
             Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
@@ -31,8 +32,8 @@ class DetailPageHeader extends StatelessWidget {
                 ))),
           ),
         ),
-        const Text(
-          'Detail',
+        Text(
+          pageTitle ?? "Detail",
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
         ),
         ClipRRect(

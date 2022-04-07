@@ -4,7 +4,6 @@ import 'package:movieapp/core/domain/base_entity.dart';
 
 import 'dto/movie_dto.dart';
 
-
 @injectable
 class MovieRemoteDataSource {
   final ApiHelper _apiService;

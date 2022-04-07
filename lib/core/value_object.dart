@@ -1,7 +1,9 @@
 import 'package:dartz/dartz.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:movieapp/core/errors.dart';
 import 'package:movieapp/core/failures.dart';
 
+@immutable
 abstract class ValueObject<T> {
   const ValueObject();
   Either<ValueFailure<T>, T> get value;
