@@ -12,8 +12,8 @@ class DetailPagePoster extends StatelessWidget {
       child: Image.network(
         urlPic,
         fit: BoxFit.fill,
-        height: MediaQuery.of(context).size.height / 2.5,
-        width: MediaQuery.of(context).size.width * 0.6,
+        height: MediaQuery.of(context).size.height / 2,
+        width: MediaQuery.of(context).size.width * 0.8,
       ),
     );
   }

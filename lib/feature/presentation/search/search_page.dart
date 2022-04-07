@@ -52,12 +52,19 @@ class SearchPage extends StatelessWidget {
                                                           .listOfMovies[index]
                                                           )));
                                     },
-                                    child: Container(
-                                        margin: const EdgeInsets.symmetric(
-                                            vertical: 10, horizontal: 10),
-                                        child: MoviePoster(
-                                            url: state.listOfMovies[index]
-                                                .artworkUrl100)),
+                                    child: Column(
+                                      children: [
+                                        Container(
+                                            margin: const EdgeInsets.symmetric( vertical: 2,
+                                                 horizontal: 10),
+                                            child: MoviePoster( height: 180, width: 300,
+                                                url: state.listOfMovies[index]
+                                                    .artworkUrl100)),
+                                        Text('Actor : ${state.listOfMovies[index].artistName}'),
+                                        SizedBox(height: 15,)
+
+                                      ],
+                                    ),
                                   );
                                 }),
                           ),
