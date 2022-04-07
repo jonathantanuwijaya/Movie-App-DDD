@@ -13,10 +13,6 @@ class DetailPageHeader extends StatelessWidget {
         GestureDetector(
           onTap: () {
             Navigator.pop(context);
-            Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(
-                    builder: (BuildContext context) => const AppWidget()));
           },
           child: ClipRRect(
             borderRadius: BorderRadius.circular(6),

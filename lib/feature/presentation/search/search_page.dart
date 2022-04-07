@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movieapp/feature/application/search/search_bloc.dart';
+import 'package:movieapp/feature/presentation/search/search_detail_page.dart';
 import 'package:movieapp/feature/presentation/widget/detail_page_header.dart';
 import 'package:movieapp/feature/presentation/widget/movie_poster.dart';
 
@@ -42,13 +43,14 @@ class SearchPage extends StatelessWidget {
                                 itemBuilder: (BuildContext context, int index) {
                                   return GestureDetector(
                                     onTap: () {
-                                      // Navigator.push(
-                                      //     context,
-                                      //     MaterialPageRoute(
-                                      //         builder: (BuildContext context) =>
-                                      //             MovieDetailPage(
-                                      //                 movie:
-                                      //                     state.listOfMovies[index])));
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (BuildContext context) =>
+                                                  SearchMovieDetailPage(
+                                                      movie: state
+                                                          .listOfMovies[index]
+                                                          )));
                                     },
                                     child: Container(
                                         margin: const EdgeInsets.symmetric(

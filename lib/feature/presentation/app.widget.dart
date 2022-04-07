@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movieapp/feature/application/auth/auth_bloc.dart';
 import 'package:movieapp/feature/application/movie/movie_bloc.dart';
 import 'package:movieapp/feature/application/search/search_bloc.dart';
 import 'package:movieapp/feature/presentation/home/home_page.dart';
@@ -15,7 +16,8 @@ class AppWidget extends StatelessWidget {
         BlocProvider(
             create: (_) =>
                 getIt<MovieBloc>()..add(const MovieEvent.gettingAll())),
-        BlocProvider(create: (_) => getIt<SearchBloc>())
+        BlocProvider(create: (_) => getIt<SearchBloc>()),
+        BlocProvider(create: (_) => getIt<AuthBloc>())
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

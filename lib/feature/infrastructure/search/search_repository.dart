@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:injectable/injectable.dart';
 import 'package:dartz/dartz.dart';
 import 'package:movieapp/feature/domain/search/i_search_repository.dart';
@@ -19,7 +18,6 @@ class SearchMovieRepository implements ISearchMovieRepository {
       final rawTypeList =
           await _searchMovieRemoteDataSource.getAllMovies(movieName);
       final typeList = rawTypeList.map((e) => e.toEntity()).toList();
-      // debugPrint('DATA FROM REMOTE SOURCE == $typeList');
       return right(typeList);
     } catch (e) {
       return left(const SearchMovieFailure());
