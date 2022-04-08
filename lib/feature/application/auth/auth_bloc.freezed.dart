@@ -33,6 +33,10 @@ class _$AuthEventTearOff {
   SignIn signIn() {
     return const SignIn();
   }
+
+  CheckAuthStatus checkAuthStatus() {
+    return const CheckAuthStatus();
+  }
 }
 
 /// @nodoc
@@ -45,6 +49,7 @@ mixin _$AuthEvent {
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String passwordStr) passwordChanged,
     required TResult Function() signIn,
+    required TResult Function() checkAuthStatus,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -52,6 +57,7 @@ mixin _$AuthEvent {
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function()? signIn,
+    TResult Function()? checkAuthStatus,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -59,6 +65,7 @@ mixin _$AuthEvent {
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function()? signIn,
+    TResult Function()? checkAuthStatus,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -67,6 +74,7 @@ mixin _$AuthEvent {
     required TResult Function(EmailChanged value) emailChanged,
     required TResult Function(PasswordChanged value) passwordChanged,
     required TResult Function(SignIn value) signIn,
+    required TResult Function(CheckAuthStatus value) checkAuthStatus,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -74,6 +82,7 @@ mixin _$AuthEvent {
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
     TResult Function(SignIn value)? signIn,
+    TResult Function(CheckAuthStatus value)? checkAuthStatus,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -81,6 +90,7 @@ mixin _$AuthEvent {
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
     TResult Function(SignIn value)? signIn,
+    TResult Function(CheckAuthStatus value)? checkAuthStatus,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -168,6 +178,7 @@ class _$EmailChanged implements EmailChanged {
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String passwordStr) passwordChanged,
     required TResult Function() signIn,
+    required TResult Function() checkAuthStatus,
   }) {
     return emailChanged(emailStr);
   }
@@ -178,6 +189,7 @@ class _$EmailChanged implements EmailChanged {
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function()? signIn,
+    TResult Function()? checkAuthStatus,
   }) {
     return emailChanged?.call(emailStr);
   }
@@ -188,6 +200,7 @@ class _$EmailChanged implements EmailChanged {
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function()? signIn,
+    TResult Function()? checkAuthStatus,
     required TResult orElse(),
   }) {
     if (emailChanged != null) {
@@ -202,6 +215,7 @@ class _$EmailChanged implements EmailChanged {
     required TResult Function(EmailChanged value) emailChanged,
     required TResult Function(PasswordChanged value) passwordChanged,
     required TResult Function(SignIn value) signIn,
+    required TResult Function(CheckAuthStatus value) checkAuthStatus,
   }) {
     return emailChanged(this);
   }
@@ -212,6 +226,7 @@ class _$EmailChanged implements EmailChanged {
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
     TResult Function(SignIn value)? signIn,
+    TResult Function(CheckAuthStatus value)? checkAuthStatus,
   }) {
     return emailChanged?.call(this);
   }
@@ -222,6 +237,7 @@ class _$EmailChanged implements EmailChanged {
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
     TResult Function(SignIn value)? signIn,
+    TResult Function(CheckAuthStatus value)? checkAuthStatus,
     required TResult orElse(),
   }) {
     if (emailChanged != null) {
@@ -308,6 +324,7 @@ class _$PasswordChanged implements PasswordChanged {
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String passwordStr) passwordChanged,
     required TResult Function() signIn,
+    required TResult Function() checkAuthStatus,
   }) {
     return passwordChanged(passwordStr);
   }
@@ -318,6 +335,7 @@ class _$PasswordChanged implements PasswordChanged {
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function()? signIn,
+    TResult Function()? checkAuthStatus,
   }) {
     return passwordChanged?.call(passwordStr);
   }
@@ -328,6 +346,7 @@ class _$PasswordChanged implements PasswordChanged {
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function()? signIn,
+    TResult Function()? checkAuthStatus,
     required TResult orElse(),
   }) {
     if (passwordChanged != null) {
@@ -342,6 +361,7 @@ class _$PasswordChanged implements PasswordChanged {
     required TResult Function(EmailChanged value) emailChanged,
     required TResult Function(PasswordChanged value) passwordChanged,
     required TResult Function(SignIn value) signIn,
+    required TResult Function(CheckAuthStatus value) checkAuthStatus,
   }) {
     return passwordChanged(this);
   }
@@ -352,6 +372,7 @@ class _$PasswordChanged implements PasswordChanged {
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
     TResult Function(SignIn value)? signIn,
+    TResult Function(CheckAuthStatus value)? checkAuthStatus,
   }) {
     return passwordChanged?.call(this);
   }
@@ -362,6 +383,7 @@ class _$PasswordChanged implements PasswordChanged {
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
     TResult Function(SignIn value)? signIn,
+    TResult Function(CheckAuthStatus value)? checkAuthStatus,
     required TResult orElse(),
   }) {
     if (passwordChanged != null) {
@@ -421,6 +443,7 @@ class _$SignIn implements SignIn {
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String passwordStr) passwordChanged,
     required TResult Function() signIn,
+    required TResult Function() checkAuthStatus,
   }) {
     return signIn();
   }
@@ -431,6 +454,7 @@ class _$SignIn implements SignIn {
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function()? signIn,
+    TResult Function()? checkAuthStatus,
   }) {
     return signIn?.call();
   }
@@ -441,6 +465,7 @@ class _$SignIn implements SignIn {
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function()? signIn,
+    TResult Function()? checkAuthStatus,
     required TResult orElse(),
   }) {
     if (signIn != null) {
@@ -455,6 +480,7 @@ class _$SignIn implements SignIn {
     required TResult Function(EmailChanged value) emailChanged,
     required TResult Function(PasswordChanged value) passwordChanged,
     required TResult Function(SignIn value) signIn,
+    required TResult Function(CheckAuthStatus value) checkAuthStatus,
   }) {
     return signIn(this);
   }
@@ -465,6 +491,7 @@ class _$SignIn implements SignIn {
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
     TResult Function(SignIn value)? signIn,
+    TResult Function(CheckAuthStatus value)? checkAuthStatus,
   }) {
     return signIn?.call(this);
   }
@@ -475,6 +502,7 @@ class _$SignIn implements SignIn {
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
     TResult Function(SignIn value)? signIn,
+    TResult Function(CheckAuthStatus value)? checkAuthStatus,
     required TResult orElse(),
   }) {
     if (signIn != null) {
@@ -489,6 +517,122 @@ abstract class SignIn implements AuthEvent {
 }
 
 /// @nodoc
+abstract class $CheckAuthStatusCopyWith<$Res> {
+  factory $CheckAuthStatusCopyWith(
+          CheckAuthStatus value, $Res Function(CheckAuthStatus) then) =
+      _$CheckAuthStatusCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$CheckAuthStatusCopyWithImpl<$Res> extends _$AuthEventCopyWithImpl<$Res>
+    implements $CheckAuthStatusCopyWith<$Res> {
+  _$CheckAuthStatusCopyWithImpl(
+      CheckAuthStatus _value, $Res Function(CheckAuthStatus) _then)
+      : super(_value, (v) => _then(v as CheckAuthStatus));
+
+  @override
+  CheckAuthStatus get _value => super._value as CheckAuthStatus;
+}
+
+/// @nodoc
+
+class _$CheckAuthStatus implements CheckAuthStatus {
+  const _$CheckAuthStatus();
+
+  @override
+  String toString() {
+    return 'AuthEvent.checkAuthStatus()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is CheckAuthStatus);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String emailStr) emailChanged,
+    required TResult Function(String passwordStr) passwordChanged,
+    required TResult Function() signIn,
+    required TResult Function() checkAuthStatus,
+  }) {
+    return checkAuthStatus();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String emailStr)? emailChanged,
+    TResult Function(String passwordStr)? passwordChanged,
+    TResult Function()? signIn,
+    TResult Function()? checkAuthStatus,
+  }) {
+    return checkAuthStatus?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String emailStr)? emailChanged,
+    TResult Function(String passwordStr)? passwordChanged,
+    TResult Function()? signIn,
+    TResult Function()? checkAuthStatus,
+    required TResult orElse(),
+  }) {
+    if (checkAuthStatus != null) {
+      return checkAuthStatus();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(EmailChanged value) emailChanged,
+    required TResult Function(PasswordChanged value) passwordChanged,
+    required TResult Function(SignIn value) signIn,
+    required TResult Function(CheckAuthStatus value) checkAuthStatus,
+  }) {
+    return checkAuthStatus(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(EmailChanged value)? emailChanged,
+    TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(SignIn value)? signIn,
+    TResult Function(CheckAuthStatus value)? checkAuthStatus,
+  }) {
+    return checkAuthStatus?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(EmailChanged value)? emailChanged,
+    TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(SignIn value)? signIn,
+    TResult Function(CheckAuthStatus value)? checkAuthStatus,
+    required TResult orElse(),
+  }) {
+    if (checkAuthStatus != null) {
+      return checkAuthStatus(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class CheckAuthStatus implements AuthEvent {
+  const factory CheckAuthStatus() = _$CheckAuthStatus;
+}
+
+/// @nodoc
 class _$AuthStateTearOff {
   const _$AuthStateTearOff();
 
@@ -496,11 +640,15 @@ class _$AuthStateTearOff {
       {required EmailAddress emailAddress,
       required Password password,
       required bool isSubmitting,
+      required bool authenticated,
+      required AutovalidateMode showErrorMessages,
       required Option<Either<AuthFailure, Unit>> authFailureOrSucessOption}) {
     return _AuthState(
       emailAddress: emailAddress,
       password: password,
       isSubmitting: isSubmitting,
+      authenticated: authenticated,
+      showErrorMessages: showErrorMessages,
       authFailureOrSucessOption: authFailureOrSucessOption,
     );
   }
@@ -514,6 +662,8 @@ mixin _$AuthState {
   EmailAddress get emailAddress => throw _privateConstructorUsedError;
   Password get password => throw _privateConstructorUsedError;
   bool get isSubmitting => throw _privateConstructorUsedError;
+  bool get authenticated => throw _privateConstructorUsedError;
+  AutovalidateMode get showErrorMessages => throw _privateConstructorUsedError;
   Option<Either<AuthFailure, Unit>> get authFailureOrSucessOption =>
       throw _privateConstructorUsedError;
 
@@ -530,6 +680,8 @@ abstract class $AuthStateCopyWith<$Res> {
       {EmailAddress emailAddress,
       Password password,
       bool isSubmitting,
+      bool authenticated,
+      AutovalidateMode showErrorMessages,
       Option<Either<AuthFailure, Unit>> authFailureOrSucessOption});
 }
 
@@ -546,6 +698,8 @@ class _$AuthStateCopyWithImpl<$Res> implements $AuthStateCopyWith<$Res> {
     Object? emailAddress = freezed,
     Object? password = freezed,
     Object? isSubmitting = freezed,
+    Object? authenticated = freezed,
+    Object? showErrorMessages = freezed,
     Object? authFailureOrSucessOption = freezed,
   }) {
     return _then(_value.copyWith(
@@ -561,6 +715,14 @@ class _$AuthStateCopyWithImpl<$Res> implements $AuthStateCopyWith<$Res> {
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
               as bool,
+      authenticated: authenticated == freezed
+          ? _value.authenticated
+          : authenticated // ignore: cast_nullable_to_non_nullable
+              as bool,
+      showErrorMessages: showErrorMessages == freezed
+          ? _value.showErrorMessages
+          : showErrorMessages // ignore: cast_nullable_to_non_nullable
+              as AutovalidateMode,
       authFailureOrSucessOption: authFailureOrSucessOption == freezed
           ? _value.authFailureOrSucessOption
           : authFailureOrSucessOption // ignore: cast_nullable_to_non_nullable
@@ -579,6 +741,8 @@ abstract class _$AuthStateCopyWith<$Res> implements $AuthStateCopyWith<$Res> {
       {EmailAddress emailAddress,
       Password password,
       bool isSubmitting,
+      bool authenticated,
+      AutovalidateMode showErrorMessages,
       Option<Either<AuthFailure, Unit>> authFailureOrSucessOption});
 }
 
@@ -596,6 +760,8 @@ class __$AuthStateCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
     Object? emailAddress = freezed,
     Object? password = freezed,
     Object? isSubmitting = freezed,
+    Object? authenticated = freezed,
+    Object? showErrorMessages = freezed,
     Object? authFailureOrSucessOption = freezed,
   }) {
     return _then(_AuthState(
@@ -611,6 +777,14 @@ class __$AuthStateCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
               as bool,
+      authenticated: authenticated == freezed
+          ? _value.authenticated
+          : authenticated // ignore: cast_nullable_to_non_nullable
+              as bool,
+      showErrorMessages: showErrorMessages == freezed
+          ? _value.showErrorMessages
+          : showErrorMessages // ignore: cast_nullable_to_non_nullable
+              as AutovalidateMode,
       authFailureOrSucessOption: authFailureOrSucessOption == freezed
           ? _value.authFailureOrSucessOption
           : authFailureOrSucessOption // ignore: cast_nullable_to_non_nullable
@@ -626,6 +800,8 @@ class _$_AuthState implements _AuthState {
       {required this.emailAddress,
       required this.password,
       required this.isSubmitting,
+      required this.authenticated,
+      required this.showErrorMessages,
       required this.authFailureOrSucessOption});
 
   @override
@@ -635,11 +811,15 @@ class _$_AuthState implements _AuthState {
   @override
   final bool isSubmitting;
   @override
+  final bool authenticated;
+  @override
+  final AutovalidateMode showErrorMessages;
+  @override
   final Option<Either<AuthFailure, Unit>> authFailureOrSucessOption;
 
   @override
   String toString() {
-    return 'AuthState(emailAddress: $emailAddress, password: $password, isSubmitting: $isSubmitting, authFailureOrSucessOption: $authFailureOrSucessOption)';
+    return 'AuthState(emailAddress: $emailAddress, password: $password, isSubmitting: $isSubmitting, authenticated: $authenticated, showErrorMessages: $showErrorMessages, authFailureOrSucessOption: $authFailureOrSucessOption)';
   }
 
   @override
@@ -652,6 +832,10 @@ class _$_AuthState implements _AuthState {
             const DeepCollectionEquality().equals(other.password, password) &&
             const DeepCollectionEquality()
                 .equals(other.isSubmitting, isSubmitting) &&
+            const DeepCollectionEquality()
+                .equals(other.authenticated, authenticated) &&
+            const DeepCollectionEquality()
+                .equals(other.showErrorMessages, showErrorMessages) &&
             const DeepCollectionEquality().equals(
                 other.authFailureOrSucessOption, authFailureOrSucessOption));
   }
@@ -662,6 +846,8 @@ class _$_AuthState implements _AuthState {
       const DeepCollectionEquality().hash(emailAddress),
       const DeepCollectionEquality().hash(password),
       const DeepCollectionEquality().hash(isSubmitting),
+      const DeepCollectionEquality().hash(authenticated),
+      const DeepCollectionEquality().hash(showErrorMessages),
       const DeepCollectionEquality().hash(authFailureOrSucessOption));
 
   @JsonKey(ignore: true)
@@ -675,6 +861,8 @@ abstract class _AuthState implements AuthState {
       {required EmailAddress emailAddress,
       required Password password,
       required bool isSubmitting,
+      required bool authenticated,
+      required AutovalidateMode showErrorMessages,
       required Option<Either<AuthFailure, Unit>>
           authFailureOrSucessOption}) = _$_AuthState;
 
@@ -684,6 +872,10 @@ abstract class _AuthState implements AuthState {
   Password get password;
   @override
   bool get isSubmitting;
+  @override
+  bool get authenticated;
+  @override
+  AutovalidateMode get showErrorMessages;
   @override
   Option<Either<AuthFailure, Unit>> get authFailureOrSucessOption;
   @override

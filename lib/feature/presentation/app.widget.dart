@@ -4,6 +4,7 @@ import 'package:movieapp/feature/application/auth/auth_bloc.dart';
 import 'package:movieapp/feature/application/movie/movie_bloc.dart';
 import 'package:movieapp/feature/application/search/search_bloc.dart';
 import 'package:movieapp/feature/presentation/home/home_page.dart';
+import 'package:movieapp/feature/presentation/sign_in_page/sign_in_page.dart';
 import 'package:movieapp/injection.dart';
 
 class AppWidget extends StatelessWidget {
@@ -17,7 +18,8 @@ class AppWidget extends StatelessWidget {
             create: (_) =>
                 getIt<MovieBloc>()..add(const MovieEvent.gettingAll())),
         BlocProvider(create: (_) => getIt<SearchBloc>()),
-        BlocProvider(create: (_) => getIt<AuthBloc>())
+        BlocProvider(
+            create: (_) => getIt<AuthBloc>()..add(AuthEvent.checkAuthStatus()))
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -29,32 +31,36 @@ class AppWidget extends StatelessWidget {
                   bodyColor: const Color(0xffffffff),
                   displayColor: const Color(0xff22215B),
                 )),
-        home: const MyHomePage(title: 'Cinema Booking'),
+        home: const SplashPage(),
       ),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
-  final String title;
+class SplashPage extends StatefulWidget {
+  const SplashPage({Key? key}) : super(key: key);
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<SplashPage> createState() => _SplashPageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _SplashPageState extends State<SplashPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.blueGrey[900],
-      body: const SafeArea(
-        child: Padding(
-          padding: EdgeInsets.all(12.0),
-          child: HomePage(),
-        ),
+    return BlocListener<AuthBloc, AuthState>(
+      listener: (context, state) {
+        (state.authenticated)
+            ? Navigator.pushReplacement(
+                context, MaterialPageRoute(builder: (context) => HomePage()))
+            : Navigator.pushReplacement(
+                context, MaterialPageRoute(builder: (context) => SignInPage()));
+      },
+      child: Scaffold(
+        backgroundColor: Colors.blueGrey[900],
+        body: const Center(child: CircularProgressIndicator()),
+
+        // This trailing comma makes auto-formatting nicer for build methods.
       ),
-      // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }

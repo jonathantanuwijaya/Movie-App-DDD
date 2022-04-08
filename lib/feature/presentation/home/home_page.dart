@@ -26,135 +26,138 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<MovieBloc, MovieState>(
-        builder: (context, state) => state.map(
-            initial: (_) => const Center(child: CircularProgressIndicator()),
-            failed: (_) {
-              return const Center(
-                child: Text('Terjadi Kesalahan'),
-              );
-            },
-            success: (state) {
-              return SingleChildScrollView(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    GestureDetector(
-                        onTap: () {
-                          Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (BuildContext context) =>
-                                      SignInPage()));
-                        },
-                        child: HomeHeader()),
-                    SearchBar(
-                      controller: searchMovie,
-                    
-                      submitting: () async {
-                        debugPrint('Search Movie == ${searchMovie.text}');
-                        if (searchMovie.text.isNotEmpty) {
-                          context
-                              .read<SearchBloc>()
-                              .add(SearchEvent.searchMovie(searchMovie.text));
-                          // Future.delayed(const Duration(milliseconds: 1000));
-
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (BuildContext context) =>
-                                      SearchPage()));
-                        }
-                      },
-                    ),
-                    const SizedBox(height: 15),
-                    const Text(
-                      'Categories',
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                          fontSize: 20),
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    SizedBox(
-                      height: 40,
-                      child: ListView(
-                          shrinkWrap: true,
-                          scrollDirection: Axis.horizontal,
-                          children: const [
-                            CategoriesCard(
-                              text: "Horror",
-                              color: Colors.deepPurpleAccent,
-                            ),
-                            CategoriesCard(
-                              text: "Romance",
-                            ),
-                            CategoriesCard(
-                              text: "Comedy",
-                            ),
-                            CategoriesCard(
-                              text: "Action",
-                            ),
-                          ]),
-                    ),
-                    const SizedBox(
-                      height: 15,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: const [
-                        Text(
-                          'Popular',
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                              fontSize: 20),
-                        ),
-                        Text(
-                          'See All',
-                          style: TextStyle(color: Colors.grey),
-                        )
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 30,
-                    ),
-                    SizedBox(
-                      height: 250,
-                      child: ListView.builder(
-                        scrollDirection: Axis.horizontal,
-                        shrinkWrap: true,
-                        itemCount: state.movies.length,
-                        itemBuilder: (BuildContext context, int index) {
-                          return GestureDetector(
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (BuildContext context) =>
-                                          MovieDetailPage(
-                                              movie: state.movies[index])));
-                            },
-                            child: Container(
-                              margin:
-                                  const EdgeInsets.symmetric(horizontal: 10),
-                              child: MoviePoster(
-                                url: state.movies[index].artworkUrl100,
-                              ),
-                            ),
-                          );
+    return Scaffold(
+      backgroundColor: Colors.blueGrey[900],
+      body: BlocBuilder<MovieBloc, MovieState>(
+          builder: (context, state) => state.map(
+              initial: (_) => const Center(child: CircularProgressIndicator()),
+              failed: (_) {
+                return const Center(
+                  child: Text('Terjadi Kesalahan'),
+                );
+              },
+              success: (state) {
+                return SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      GestureDetector(
+                          onTap: () {
+                            Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (BuildContext context) =>
+                                        SignInPage()));
+                          },
+                          child: HomeHeader()),
+                      SearchBar(
+                        controller: searchMovie,
+                      
+                        submitting: () async {
+                          debugPrint('Search Movie == ${searchMovie.text}');
+                          if (searchMovie.text.isNotEmpty) {
+                            context
+                                .read<SearchBloc>()
+                                .add(SearchEvent.searchMovie(searchMovie.text));
+                            // Future.delayed(const Duration(milliseconds: 1000));
+    
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (BuildContext context) =>
+                                        SearchPage()));
+                          }
                         },
                       ),
-                    ),
-                    const SizedBox(
-                      height: 35,
-                    ),
-                    const FloatingBottomNav()
-                  ],
-                ),
-              );
-            }));
+                      const SizedBox(height: 15),
+                      const Text(
+                        'Categories',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                            fontSize: 20),
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      SizedBox(
+                        height: 40,
+                        child: ListView(
+                            shrinkWrap: true,
+                            scrollDirection: Axis.horizontal,
+                            children: const [
+                              CategoriesCard(
+                                text: "Horror",
+                                color: Colors.deepPurpleAccent,
+                              ),
+                              CategoriesCard(
+                                text: "Romance",
+                              ),
+                              CategoriesCard(
+                                text: "Comedy",
+                              ),
+                              CategoriesCard(
+                                text: "Action",
+                              ),
+                            ]),
+                      ),
+                      const SizedBox(
+                        height: 15,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: const [
+                          Text(
+                            'Popular',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                                fontSize: 20),
+                          ),
+                          Text(
+                            'See All',
+                            style: TextStyle(color: Colors.grey),
+                          )
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 30,
+                      ),
+                      SizedBox(
+                        height: 250,
+                        child: ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          shrinkWrap: true,
+                          itemCount: state.movies.length,
+                          itemBuilder: (BuildContext context, int index) {
+                            return GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (BuildContext context) =>
+                                            MovieDetailPage(
+                                                movie: state.movies[index])));
+                              },
+                              child: Container(
+                                margin:
+                                    const EdgeInsets.symmetric(horizontal: 10),
+                                child: MoviePoster(
+                                  url: state.movies[index].artworkUrl100,
+                                ),
+                              ),
+                            );
+                          },
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 35,
+                      ),
+                      const FloatingBottomNav()
+                    ],
+                  ),
+                );
+              })),
+    );
   }
 }

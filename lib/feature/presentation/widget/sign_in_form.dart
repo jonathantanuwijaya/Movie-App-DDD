@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movieapp/feature/application/auth/auth_bloc.dart';
-import 'package:movieapp/feature/presentation/widget/buyticket_button.dart';
+import 'package:movieapp/feature/presentation/home/home_page.dart';
 
 class SignInForm extends StatelessWidget {
   const SignInForm({Key? key}) : super(key: key);
@@ -10,45 +10,47 @@ class SignInForm extends StatelessWidget {
   Widget build(BuildContext context) {
     final _formKey = GlobalKey<FormState>();
 
-    return BlocBuilder<AuthBloc, AuthState>(
+    return BlocConsumer<AuthBloc, AuthState>(
+      listener: (context, state) {
+        if (state.authenticated) {
+          Navigator.pushReplacement(context,
+              MaterialPageRoute(builder: (BuildContext context) => HomePage()));
+        }
+      },
       builder: (context, state) => Form(
         key: _formKey,
-        autovalidateMode: AutovalidateMode.always,
+        autovalidateMode: state.showErrorMessages,
         child: Padding(
           padding: const EdgeInsets.all(10),
           child: ListView(
             children: [
               const Text(
                 'Welcome to Movie App',
-                style: TextStyle(fontSize: 22, color: Colors.black),
+                style: TextStyle(fontSize: 22, color: Colors.white),
                 textAlign: TextAlign.center,
               ),
               TextFormField(
                 decoration: const InputDecoration(
-                    fillColor: Colors.black,
-                    focusColor: Colors.black,
+                    fillColor: Colors.white,
+                    focusColor: Colors.white,
                     prefixIcon: Icon(Icons.email),
                     labelText: 'Email'),
                 autocorrect: false,
                 onChanged: (value) =>
                     context.read<AuthBloc>().add(AuthEvent.emailChanged(value)),
-                validator: (_) => context
-                    .read<AuthBloc>()
-                    .state
-                    .emailAddress
-                    .value
-                    .fold(
-                        (l) => l.maybeMap(
-                            invalidEmail: (_) => 'Invalid Email',
-                            orElse: () => null),
-                        (_) => null),
+                validator: (_) => state.emailAddress.value.fold(
+                    (l) => l.maybeMap(
+                        invalidEmail: (_) => 'Invalid Email',
+                        orElse: () => null),
+                    (_) => null),
               ),
               const SizedBox(
                 height: 12,
               ),
               TextFormField(
+                obscureText: true,
                 decoration: const InputDecoration(
-                    fillColor: Colors.black,
+                    fillColor: Colors.white,
                     prefixIcon: Icon(Icons.password),
                     labelText: 'Password'),
                 autocorrect: false,
@@ -72,7 +74,7 @@ class SignInForm extends StatelessWidget {
               GestureDetector(
                 onTap: () {
                   debugPrint('button clicked');
-                  context.read<AuthBloc>().add(AuthEvent.signIn());
+                  context.read<AuthBloc>().add(const AuthEvent.signIn());
                 },
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(14),
@@ -95,6 +97,7 @@ class SignInForm extends StatelessWidget {
                   height: 8,
                 ),
                 const LinearProgressIndicator(
+                  backgroundColor: Colors.deepPurpleAccent,
                   value: null,
                 )
               ]

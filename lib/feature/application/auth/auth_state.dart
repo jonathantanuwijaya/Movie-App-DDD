@@ -6,6 +6,8 @@ class AuthState with _$AuthState {
     required EmailAddress emailAddress,
     required Password password,
     required bool isSubmitting,
+    required bool authenticated,
+    required AutovalidateMode showErrorMessages,
     required Option<Either<AuthFailure, Unit>> authFailureOrSucessOption,
   }) = _AuthState;
 
@@ -13,5 +15,10 @@ class AuthState with _$AuthState {
       emailAddress: EmailAddress(''),
       password: Password(''),
       isSubmitting: false,
+      authenticated: false,
+      showErrorMessages:  AutovalidateMode.disabled,
       authFailureOrSucessOption: none());
+
+
+      
 }
