@@ -25,7 +25,7 @@ class AppWidget extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Cinema App',
         theme: ThemeData(
-            primarySwatch: Colors.blue,
+            primarySwatch: Colors.cyan,
             backgroundColor: Colors.grey,
             textTheme: Theme.of(context).textTheme.apply(
                   bodyColor: const Color(0xffffffff),
@@ -59,7 +59,6 @@ class _SplashPageState extends State<SplashPage> {
         backgroundColor: Colors.blueGrey[900],
         body: const Center(child: CircularProgressIndicator()),
 
-        // This trailing comma makes auto-formatting nicer for build methods.
       ),
     );
   }

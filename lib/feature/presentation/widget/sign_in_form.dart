@@ -16,6 +16,18 @@ class SignInForm extends StatelessWidget {
           Navigator.pushReplacement(context,
               MaterialPageRoute(builder: (BuildContext context) => HomePage()));
         }
+        state.authFailureOrSucessOption.fold(
+            () => {},
+            (either) => either.fold((failure) {
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                      content: Text(failure.map(
+                          invalidEmailAndPass: (_) =>
+                              'Invalid Email and Password')),
+                      action: SnackBarAction(
+                        label: 'Action',
+                        onPressed: () {},
+                      )));
+                }, (_) {}));
       },
       builder: (context, state) => Form(
         key: _formKey,

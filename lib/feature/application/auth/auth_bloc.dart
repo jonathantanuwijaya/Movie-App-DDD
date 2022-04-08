@@ -6,8 +6,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:movieapp/feature/domain/auth/auth_failure.dart';
+import 'package:movieapp/feature/domain/auth/user.dart';
 import 'package:movieapp/feature/domain/auth/value_objects.dart';
-import 'package:movieapp/feature/infrastructure/auth/i_auth_facade.dart';
 
 part 'auth_event.dart';
 part 'auth_state.dart';
@@ -41,18 +41,36 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     final isEmailValid = state.emailAddress.isValid();
     final isPasswordValid = state.password.isValid();
     Either<AuthFailure, Unit>? failureOrSuccess;
+
+    List users = [];
+    users.add(User(
+        emailAddress: EmailAddress('jack@mail.com'),
+        password: Password('jack123')));
+    users.add(User(
+        emailAddress: EmailAddress('budi@mail.com'),
+        password: Password('b123')));
+
     if (isEmailValid && isPasswordValid) {
       emit(state.copyWith(
-        authFailureOrSucessOption: none(),
-        isSubmitting: true,
-        showErrorMessages: AutovalidateMode.always
-      ));
+          authFailureOrSucessOption: none(),
+          isSubmitting: true,
+          showErrorMessages: AutovalidateMode.always));
+      var mappedEmails = users.map((n) => n.emailAddress.getOrCrash());
+      var mappedPassword = users.map((n) => n.password.getOrCrash());
+      if (mappedEmails.contains(state.emailAddress.getOrCrash()) &&
+          mappedPassword.contains(state.password.getOrCrash())) {
+        emit(state.copyWith(
+            authenticated: true, authFailureOrSucessOption: some(right(unit))));
 
-      emit(state.copyWith(
-          authFailureOrSucessOption: some(right(unit)),
-          authenticated: true,
-          isSubmitting: false));
-      debugPrint('User Authenticated');
+        debugPrint('User Authenticated');
+      } else {
+        debugPrint('credentials false');
+        emit(state.copyWith(
+            authFailureOrSucessOption:
+                some(left(const AuthFailure.invalidEmailAndPass())),
+            authenticated: false,
+            isSubmitting: false));
+      }
     }
 
     emit(state.copyWith(

@@ -10,6 +10,7 @@ import 'package:movieapp/feature/presentation/sign_in_page/sign_in_page.dart';
 import 'package:movieapp/feature/presentation/widget/categories_card.dart';
 import 'package:movieapp/feature/presentation/widget/detail_page_header.dart';
 import 'package:movieapp/feature/presentation/widget/floating_bottom_nav.dart';
+import 'package:movieapp/feature/presentation/widget/genre_list.dart';
 import 'package:movieapp/feature/presentation/widget/home_header.dart';
 import 'package:movieapp/feature/presentation/widget/movie_poster.dart';
 import 'package:movieapp/feature/presentation/widget/search_bar.dart';
@@ -52,15 +53,13 @@ class _HomePageState extends State<HomePage> {
                           child: HomeHeader()),
                       SearchBar(
                         controller: searchMovie,
-                      
-                        submitting: () async {
+                        submitting: () {
                           debugPrint('Search Movie == ${searchMovie.text}');
                           if (searchMovie.text.isNotEmpty) {
                             context
                                 .read<SearchBloc>()
                                 .add(SearchEvent.searchMovie(searchMovie.text));
-                            // Future.delayed(const Duration(milliseconds: 1000));
-    
+
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
@@ -80,27 +79,7 @@ class _HomePageState extends State<HomePage> {
                       const SizedBox(
                         height: 20,
                       ),
-                      SizedBox(
-                        height: 40,
-                        child: ListView(
-                            shrinkWrap: true,
-                            scrollDirection: Axis.horizontal,
-                            children: const [
-                              CategoriesCard(
-                                text: "Horror",
-                                color: Colors.deepPurpleAccent,
-                              ),
-                              CategoriesCard(
-                                text: "Romance",
-                              ),
-                              CategoriesCard(
-                                text: "Comedy",
-                              ),
-                              CategoriesCard(
-                                text: "Action",
-                              ),
-                            ]),
-                      ),
+                      GenreList(),
                       const SizedBox(
                         height: 15,
                       ),
@@ -160,4 +139,6 @@ class _HomePageState extends State<HomePage> {
               })),
     );
   }
+
+
 }
