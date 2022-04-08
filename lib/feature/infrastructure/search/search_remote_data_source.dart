@@ -1,5 +1,5 @@
 import 'package:injectable/injectable.dart';
-import 'package:movieapp/core/api_helper.dart';
+import 'package:movieapp/core/infrastructure/api_helper.dart';
 import 'package:movieapp/core/domain/base_entity.dart';
 import 'package:movieapp/feature/infrastructure/search/dto/search_dto.dart';
 

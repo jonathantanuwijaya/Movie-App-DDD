@@ -8,7 +8,7 @@ import 'package:dio/dio.dart' as _i4;
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
-import 'core/api_helper.dart' as _i5;
+import 'core/infrastructure/api_helper.dart' as _i5;
 import 'core/infrastructure/dio_injectable_module.dart' as _i12;
 import 'feature/application/auth/auth_bloc.dart' as _i3;
 import 'feature/application/movie/movie_bloc.dart' as _i10;

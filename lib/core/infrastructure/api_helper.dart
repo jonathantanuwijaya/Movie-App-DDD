@@ -5,7 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:injectable/injectable.dart';
 import 'package:movieapp/core/domain/app_exception.dart';
 import 'package:movieapp/core/domain/base_entity.dart';
-import 'package:movieapp/core/exception.dart';
+import 'package:movieapp/core/domain/exception.dart';
 
 @singleton
 class ApiHelper {

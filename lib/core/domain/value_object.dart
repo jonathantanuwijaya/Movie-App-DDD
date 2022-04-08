@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:movieapp/core/errors.dart';
-import 'package:movieapp/core/failures.dart';
+import 'errors.dart';
+import 'failures.dart';
 
 @immutable
 abstract class ValueObject<T> {

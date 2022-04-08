@@ -1,4 +1,4 @@
-import 'package:movieapp/core/failures.dart';
+import 'failures.dart';
 
 class UnExpectedValueError extends Error {
   final ValueFailure valueFailure;

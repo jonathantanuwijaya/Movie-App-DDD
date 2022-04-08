@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 
 import 'package:movieapp/core/domain/app_exception.dart';
 
-import 'domain/base_entity.dart';
+import 'base_entity.dart';
 
 class ApiException extends AppException {
   final StackTrace stackTrace;

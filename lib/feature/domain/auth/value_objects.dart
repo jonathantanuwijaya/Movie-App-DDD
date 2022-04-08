@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
-import 'package:movieapp/core/failures.dart';
-import 'package:movieapp/core/value_object.dart';
-import 'package:movieapp/core/value_validators.dart';
+import 'package:movieapp/core/domain/failures.dart';
+import 'package:movieapp/core/domain/value_object.dart';
+import 'package:movieapp/core/domain/value_validators.dart';
 
 class Password extends ValueObject<String> {
   final Either<ValueFailure<String>, String> value;
