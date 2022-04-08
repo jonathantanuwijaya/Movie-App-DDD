@@ -12,22 +12,20 @@ class SignInForm extends StatelessWidget {
 
     return BlocConsumer<AuthBloc, AuthState>(
       listener: (context, state) {
-        if (state.authenticated) {
-          Navigator.pushReplacement(context,
-              MaterialPageRoute(builder: (BuildContext context) => HomePage()));
-        }
         state.authFailureOrSucessOption.fold(
             () => {},
             (either) => either.fold((failure) {
                   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                      content: Text(failure.map(
-                          invalidEmailAndPass: (_) =>
-                              'Invalid Email and Password')),
-                      action: SnackBarAction(
-                        label: 'Action',
-                        onPressed: () {},
-                      )));
-                }, (_) {}));
+                    content: Text(failure.map(
+                        invalidEmailAndPass: (_) =>
+                            'Invalid Email or Password')),
+                  ));
+                }, (_) {
+                  Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (BuildContext context) => HomePage()));
+                }));
       },
       builder: (context, state) => Form(
         key: _formKey,

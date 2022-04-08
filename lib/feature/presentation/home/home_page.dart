@@ -69,12 +69,15 @@ class _HomePageState extends State<HomePage> {
                         },
                       ),
                       const SizedBox(height: 15),
-                      const Text(
-                        'Categories',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                            fontSize: 20),
+                      const Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Text(
+                          'Categories',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                              fontSize: 20),
+                        ),
                       ),
                       const SizedBox(
                         height: 20,
@@ -83,24 +86,27 @@ class _HomePageState extends State<HomePage> {
                       const SizedBox(
                         height: 15,
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: const [
-                          Text(
-                            'Popular',
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
-                                fontSize: 20),
-                          ),
-                          Text(
-                            'See All',
-                            style: TextStyle(color: Colors.grey),
-                          )
-                        ],
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: const [
+                            Text(
+                              'Popular',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                  fontSize: 20),
+                            ),
+                            Text(
+                              'See All',
+                              style: TextStyle(color: Colors.grey),
+                            )
+                          ],
+                        ),
                       ),
                       const SizedBox(
-                        height: 30,
+                        height: 20,
                       ),
                       SizedBox(
                         height: 250,
@@ -130,7 +136,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                       const SizedBox(
-                        height: 35,
+                        height: 30,
                       ),
                       const FloatingBottomNav()
                     ],
@@ -139,6 +145,4 @@ class _HomePageState extends State<HomePage> {
               })),
     );
   }
-
-
 }
