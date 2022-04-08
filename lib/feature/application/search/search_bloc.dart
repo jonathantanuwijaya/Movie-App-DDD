@@ -15,9 +15,8 @@ part 'search_bloc.freezed.dart';
 class SearchBloc extends Bloc<SearchEvent, SearchState> {
   final SearchMovieRepository _searchmovieRepository;
   SearchBloc(this._searchmovieRepository) : super(SearchState.init()) {
-    // ignore: void_checks
-    on<SearchEvent>((event, emit) {
-      return event.map(started: (event) {
+    on<SearchEvent>((event, emit) async {
+      await event.map(started: (event) {
         emit(state.copyWith(isLoading: false));
       }, searchMovie: (event) async {
         final movieList =
@@ -25,8 +24,8 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
         emit(state.copyWith(isLoading: true));
         emit(movieList.fold((l) => state.failOrSuccess(left(l)),
             (r) => state.copyWith(listOfMovies: r)));
-            debugPrint("List of searched movies BLOC  "+state.listOfMovies.toString());
-            
+        debugPrint(
+            "List of searched movies BLOC  " + state.listOfMovies.toString());
       });
     });
   }

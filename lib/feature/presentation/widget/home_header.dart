@@ -8,11 +8,12 @@ class HomeHeader extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          SizedBox(
-            height: 65,
-            width: 65,
-            child: Image.asset(
-              'assets/user.png',
+          const SizedBox(
+            height: 45,
+            width: 45,
+            child: CircleAvatar(
+              radius: 30,
+              backgroundImage: AssetImage('assets/user.png'),
             ),
           ),
           const SizedBox(
@@ -28,15 +29,15 @@ class HomeHeader extends StatelessWidget {
               )
             ],
           ),
-          Expanded(
+          const Expanded(
             flex: 1,
             child: Align(
               alignment: Alignment.centerRight,
               child: SizedBox(
                 height: 28,
                 width: 28,
-                child: Image.asset(
-                  'assets/user.png',
+                child: CircleAvatar(
+                  backgroundImage: AssetImage('assets/user.png'),
                 ),
               ),
             ),

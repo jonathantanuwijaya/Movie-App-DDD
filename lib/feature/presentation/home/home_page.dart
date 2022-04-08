@@ -42,15 +42,9 @@ class _HomePageState extends State<HomePage> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      GestureDetector(
-                          onTap: () {
-                            Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (BuildContext context) =>
-                                        SignInPage()));
-                          },
-                          child: HomeHeader()),
+                      Container(
+                        margin: EdgeInsets.only(top: 30),
+                        child: HomeHeader()),
                       SearchBar(
                         controller: searchMovie,
                         submitting: () {
